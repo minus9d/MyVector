@@ -23,7 +23,7 @@ public:
         assert(m_buffer != nullptr);
     };
     myvector(int size, T num)
-    : myvector(size) {
+        : myvector(size) {
         assert(m_size == size);
         for (int i = 0; i < size; ++i) {
             m_buffer[i] = num;
@@ -52,6 +52,29 @@ public:
             assert(m_buffer != nullptr);
             std::memcpy(m_buffer, p.m_buffer, sizeof(T) * m_size);
         }
+        return *this;
+    }
+
+    // move c'tor
+    myvector(myvector&& p) {
+        m_size = p.m_size;
+        m_buffer = p.m_buffer;
+
+        p.m_size = 0;
+        p.m_buffer = nullptr;
+    }
+
+    // move assignment operator
+    myvector& operator=(myvector&& p) {
+        std::cout << "Move Assignment operator is called." << std::endl;
+        if (this != &p) {
+            m_size = p.m_size;
+            m_buffer = p.m_buffer;
+
+            p.m_size = 0;
+            p.m_buffer = nullptr;
+        }
+
         return *this;
     }
 

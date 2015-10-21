@@ -1,11 +1,6 @@
 #include "myvector.h"
 #include <iostream>
 
-void func(int n)
-{
-
-}
-
 int main(void)
 {
     mystd::myvector<int> mv(10, 777);
@@ -17,6 +12,9 @@ int main(void)
     mystd::myvector<int> mv3;
     mv3 = mv;
     std::cout << "index, val = (" << 5 << ", " << mv3[5] << ")" << std::endl;
+
+    mystd::myvector<int> mv4 = std::move(mv3);
+    //std::cout << "index, val = (" << 5 << ", " << mv3[5] << ")" << std::endl; // error!
 
     return 0;
 }
