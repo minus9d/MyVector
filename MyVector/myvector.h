@@ -78,7 +78,12 @@ public:
         return *this;
     }
 
-    // clear
+    T const& operator[](int index) const {
+        // TODO: throw range_error
+        assert(0 <= index && index < m_size);
+        return m_buffer[index];
+    }
+
     void clear()
     {
         if (m_buffer != nullptr)
@@ -88,12 +93,10 @@ public:
         }
     }
 
-    T const& operator[](int index) const {
-        // TODO: throw range_error
-        assert(0 <= index && index < m_size);
-        return m_buffer[index];
+    void size()
+    {
+        return m_size;
     }
-
 
 
 private:
