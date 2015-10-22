@@ -18,6 +18,7 @@ public:
 
         m_buffer = new T[size];
         m_size = size;
+        m_capacity = size;
 
         // TODO: need to catch std::bad_alloc
         assert(m_buffer != nullptr);
@@ -25,6 +26,7 @@ public:
     myvector(int size, T num)
         : myvector(size) {
         assert(m_size == size);
+        assert(m_capacity >= size);
         for (int i = 0; i < size; ++i) {
             m_buffer[i] = num;
         }
@@ -40,6 +42,7 @@ public:
         : myvector(obj.m_size)
     {
         assert(m_size == obj.m_size);
+        assert(m_capacity >= obj.m_size);
         std::memcpy(m_buffer, obj.m_buffer, sizeof(T) * m_size);
     };
 
@@ -49,6 +52,7 @@ public:
             clear();
             m_buffer = new T[p.m_size];
             m_size = p.m_size;
+            m_capacity = m_size;
             assert(m_buffer != nullptr);
             std::memcpy(m_buffer, p.m_buffer, sizeof(T) * m_size);
         }
@@ -58,9 +62,11 @@ public:
     // move c'tor
     myvector(myvector&& p) {
         m_size = p.m_size;
+        m_capacity = p.m_capacity;
         m_buffer = p.m_buffer;
 
         p.m_size = 0;
+        p.m_capacity = 0;
         p.m_buffer = nullptr;
     }
 
@@ -69,9 +75,11 @@ public:
         std::cout << "Move Assignment operator is called." << std::endl;
         if (this != &p) {
             m_size = p.m_size;
+            m_capacity = p.m_capacity;
             m_buffer = p.m_buffer;
 
             p.m_size = 0;
+            p.m_capacity = 0;
             p.m_buffer = nullptr;
         }
 
@@ -86,11 +94,7 @@ public:
 
     void clear()
     {
-        if (m_buffer != nullptr)
-        {
-            delete[] m_buffer;
-            m_buffer = nullptr;
-        }
+        m_size = 0;
     }
 
     void size()
@@ -102,6 +106,7 @@ public:
 private:
     T* m_buffer = nullptr;
     int m_size = 0;
+    int m_capacity = 0;
 };
 
 }
