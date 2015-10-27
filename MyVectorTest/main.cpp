@@ -1,20 +1,8 @@
-#include "myvector.h"
-#include <iostream>
+#define CATCH_CONFIG_RUNNER
+#include "catch.hpp"
 
-int main(void)
+int main(int argc, char* const argv[])
 {
-    mystd::myvector<int> mv(10, 777);
-    std::cout << "index, val = (" << 5 << ", " << mv[5] << ")" << std::endl;
-
-    auto mv2(mv);
-    std::cout << "index, val = (" << 5 << ", " << mv2[5] << ")" << std::endl;
-
-    mystd::myvector<int> mv3;
-    mv3 = mv;
-    std::cout << "index, val = (" << 5 << ", " << mv3[5] << ")" << std::endl;
-
-    mystd::myvector<int> mv4 = std::move(mv3);
-    //std::cout << "index, val = (" << 5 << ", " << mv3[5] << ")" << std::endl; // error!
-
-    return 0;
+    int result = Catch::Session().run(argc, argv);
+    return result;
 }
