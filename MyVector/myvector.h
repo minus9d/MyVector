@@ -97,7 +97,7 @@ public:
         m_size = 0;
     }
 
-    void size()
+    int size()
     {
         return m_size;
     }
