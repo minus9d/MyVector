@@ -34,7 +34,7 @@ install:
 
   - cd ${TRAVIS_BUILD_DIR}
   - ls
-  - make CXXFLAGS=${CXXFLAGS} CXX=${CXX}
+  - make CXXFLAGS="${CXXFLAGS}" CXX="${CXX}"
   - ls
 
 script:
