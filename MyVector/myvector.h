@@ -1,8 +1,10 @@
 #pragma once
 
+#include <cassert>
 #include <memory>
 #include <vector>
-#include <cassert>
+#include <cstring>
+
 
 namespace mystd {
 
@@ -72,7 +74,6 @@ public:
 
     // move assignment operator
     myvector& operator=(myvector&& p) {
-        std::cout << "Move Assignment operator is called." << std::endl;
         if (this != &p) {
             m_size = p.m_size;
             m_capacity = p.m_capacity;
