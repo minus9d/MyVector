@@ -1,4 +1,3 @@
-CXX = g++
 CPPFLAGS = -I3rdparty/catch -IMyVector -std=c++11
 TARGET = test
 
