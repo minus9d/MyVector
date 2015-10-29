@@ -25,6 +25,8 @@ install:
 
   - cd ${TRAVIS_BUILD_DIR}
   - ls
+  - echo ${SHELL}
+  - make --version
   - echo ${CXXFLAGS}
   - echo ${CXX}
   - echo make CXXFLAGS=${CXXFLAGS} CXX="${CXX}"
