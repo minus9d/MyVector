@@ -1,6 +1,8 @@
 MyVector
 ========
 
+[![Build Status](https://travis-ci.org/minus9d/MyVector.svg?branch=master)](https://travis-ci.org/minus9d/MyVector)
+
 std::vector-like container class for C++ practice
 
 ## Motivation
