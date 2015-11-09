@@ -20,10 +20,10 @@ install:
 addons:
   apt:
     sources:
-      - llvm-toolchain-precise
       - ubuntu-toolchain-r-test
+      - llvm-toolchain-precise-3.7
+      - llvm-toolchain-precise
     packages:
-      - clang++-3.7
       - clang-3.7
       - g++-5
       - gcc-5
