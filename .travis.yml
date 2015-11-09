@@ -16,9 +16,7 @@ install:
   - if [ "$CXX" = "clang++" ]; then export CXX="clang++-3.4"; fi
 
   - ls /usr/bin/clang*
-  - ls /bin/clang*
   - ls /usr/bin/g++*
-  - ls /bin/g++*
   - g++ --version
   - clang++ --version
 
