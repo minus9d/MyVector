@@ -25,14 +25,14 @@ install:
   - make CXXFLAGS="${CXXFLAGS}" CXX="${CXX}"
   - ls
 
-addons:
-  apt:
-    sources:
-    - ubuntu-toolchain-r-test
-    packages:
-    - gcc-4.8
-    - g++-4.8
-    - clang
+#addons:
+#  apt:
+#    sources:
+#    - ubuntu-toolchain-r-test
+#    packages:
+#    - gcc-4.8
+#    - g++-4.8
+#    - clang++-3.4
 
 script:
   - chmod ugo+x test
