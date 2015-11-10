@@ -28,5 +28,5 @@ addons:
       - gcc-5
 
 script:
-  - chmod ugo+x test
+#  - chmod ugo+x test
   - ./test
